@@ -295,8 +295,14 @@ bool snakelinkedlist::operator!=(const LinkedList<ElementType>& lhs, const Linke
 	return !(lhs == rhs);
 }
 
+//Cited from:
+//https://courses.engr.illinois.edu/cs126/sp2018/slides/L21-Templates.pdf
 template<typename ElementType>
 typename snakelinkedlist::LinkedList<ElementType>::Iterator& LinkedList<ElementType>::Iterator::operator++() {
+    if (current) {
+        current = current->next_;
+    }
+    return *this;
 
 }
 //Cited from:
